@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button> <!--botao back p voltar-->
+    </ion-buttons>
+    <ion-title>{{filme.nome}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card *ngIf="filme"> 
+    <ion-card-header>
+      <img *ngIf="filme.foto" src="{{filme.foto}}" />
+      <ion-icon *ngIf="!filme.foto" name="videocam-off"></ion-icon>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h1>{{filme.nome}} <ion-icon name="star" [color]="filme.favorito===true ? 'warning' : ('light')"></ion-icon></h1>
+      <p>{{filme.data}}
+              <ion-chip [color]="filme.classificacao < 5 ? 'danger' : ((filme.classificacao < 7 ? 'warning' : 'success'))"
+          outline>
+          <ion-label>{{filme.classificacao}}</ion-label>
+        </ion-chip>
+      </p>
+      <ion-item>
+        <ion-badge color="medium" *ngFor="let extra of filme.extra">{{extra}}</ion-badge>
+      </ion-item>
+
+      <h2>Samsung prepara revelação de robôs com capacidades de olfato e paladar</h2>
+    <p>No próximo Tech Day da Samsung, agendado para outubro, a empresa sul-coreana planeia surpreender a todos com uma revelação que ninguém esperava. Eles avançaram muito nos seus processadores, e parece que agora estamos a falar de robôs com capacidades humanas. E não estamos a falar de qualquer capacidade, mas dos sentidos de olfato e paladar!</p>
+
+    <h3>Inovação no campo dos semicondutores</h3>
+    <p>A Samsung, já reconhecida mundialmente pelos seus smartphones, também é uma líder na produção de ecrãs e processadores. Com as recentes informações que vieram à tona, soubemos que a empresa conseguiu integrar sensores de cheiro e paladar nos seus processadores. Portanto, no Tech Day, teremos a oportunidade de ver robôs humanóides equipados com esses inovadores semicondutores. Não está claro se vamos ver esses robôs em ação, mas esperamos ver pelo menos algumas imagens ou vídeos destes humanóides exibindo essas novas capacidades.</p>
+    </ion-card-content>
+    
+  </ion-card>
+</ion-content>
+
